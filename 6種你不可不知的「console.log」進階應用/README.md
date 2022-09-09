@@ -1,4 +1,4 @@
-# 6 種你不可不知的「console.log」進階應用
+# 6 種不可不知的「console.log」進階應用
 
 相信 console.log 是 Frontend 開發人員的好朋友，我們用它印出各種輔助資訊來協助我們解決問題。
 
@@ -78,7 +78,7 @@ for (let i = 0; i < 30; i++) {
 
 ![image](img/console-no-warn.png)
 
-我相信大多數人第一眼是不會發現當「i === 13」時印出的東西不同，但如果透過 console.warn() 來輔助就會一目瞭然：
+我相信大多數人第一眼是不會發現「i === 13」時印出的東西不同，但如果透過 console.warn() 來輔助就會一目瞭然：
 
 ```js
 for (let i = 0; i < 30; i++) {
@@ -123,7 +123,7 @@ setTimeout(function () {
 
 ![image](img/console-time.png)
 
-但有時可能一個功能裡面用到多個 api，你想要釐清到底是哪個 api 效率有問題，就可以給 console.time() 加上標記(flag)。
+但一個功能裡面可能用到多個 api，當你想釐清到底是哪個 api 效率有問題時，就可以給 console.time() 加上標記(flag)。
 
 ```js
 console.time("api-1");
@@ -141,7 +141,7 @@ setTimeout(function () {
 
 ![image](img/console-time-multi.png)
 
-### 六、用 console.table() 讓資訊轉成表格來閱讀
+### 六、用 console.table() 將資訊轉成表格來閱讀
 
 Backend 很常回傳 Table 格式的資訊，如果我們使用 console.log() 直接將結果印出來，在需要比對資料的時候會不好閱讀：
 
