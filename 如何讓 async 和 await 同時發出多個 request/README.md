@@ -8,6 +8,7 @@
 
 ```js
 const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
+
 async function api1 () {
     await waitFor(500);
     return "A";
@@ -20,6 +21,7 @@ async function api3 () {
     await waitFor(500);
     return "C";
 }
+
 async function callMutiApi () {
     console.time();
     const a = await api1()
@@ -41,6 +43,7 @@ callMutiApi();
 
 ```js
 const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
+
 async function api1 () {
     await waitFor(500);
     return "A";
@@ -65,6 +68,7 @@ async function callMutiApi () {
         console.timeEnd();
     });
 }
+
 callMutiApi();
 ```
 
@@ -78,6 +82,7 @@ callMutiApi();
 
 ```js
 const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
+
 async function api1 () {
     await waitFor(500);
     return "A";
@@ -90,6 +95,7 @@ async function api3 () {
     await waitFor(500);
     throw "error"; // 丟出錯誤訊息
 }
+
 async function callMutiApi () {
     console.time();
     const promises = [
@@ -115,6 +121,7 @@ callMutiApi();
 
 ```js
 const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
+
 async function api1 () {
     await waitFor(500);
     return "A";
@@ -127,6 +134,7 @@ async function api3 () {
     await waitFor(500);
     throw "error"; // 丟出錯誤訊息
 }
+
 async function callMutiApi () {
     console.time();
     const promises = [
