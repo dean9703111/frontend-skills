@@ -1,4 +1,4 @@
-# 如何讓 async 和 await 「同時」發出多個 request（同場說明 Promise.all 和 Promise.allSettled 的區別）
+# JavaScript 如何讓 await 函式並行（同場說明 Promise.all 和 Promise.allSettled 的區別）
 
 > 大家可以在瀏覽器按下「F12」，於 Console 的分頁貼上文中的程式碼來驗證喔！
 
