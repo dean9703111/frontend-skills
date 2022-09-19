@@ -35,7 +35,7 @@ callMutiApi();
 
 在上圖中，我們可以看到總執行時長為 1512 ms，有許多時間被浪費在等待上一支 API 完成。
 
-### 採用 Promise.all 來解決問題
+### ▋採用 Promise.all 來解決問題
 
 既然 API 之間沒有依序執行的需求，我們就可以將其改寫為 `Promise.all`，透過並行（parallel）來提升效率：
 
@@ -72,7 +72,7 @@ callMutiApi();
 
 經過改寫，我們可以從輸出的結果中看到，總執行時長從 `1512 ms` 下降到 `502 ms`，這是對使用者來說非常有感的提升。
 
-### Promise.all 會碰到什麼問題？
+### ▋Promise.all 會碰到什麼問題？
 
 儘管透過 `Promise.all` 已經提升了不少效率，但這個方案在遇到其中一支 API 吐出 error 時，情況就會變得很麻煩。
 
@@ -109,7 +109,7 @@ callMutiApi();
 
 有時這種「只有成功 or 失敗」的結果的確是我們要的，但在實務上，我們未必需要所有 API 都執行成功，面對錯誤可能有設計另一套處理方案。
 
-### 導入 Promise.allSettled 解決問題
+### ▋導入 Promise.allSettled 解決問題
 
 為了取得所有回傳結果，我們可以改為使用 `Promise.allSettled`，在輸出的時候，它會多出一個 `status` 的參數來說明執行結果的成功 or 失敗。
 
@@ -149,7 +149,7 @@ callMutiApi();
 > **備註：**
 > Node.js 從 v12.9.0 開始支援 Promise.allSettled 的語法，大多數的瀏覽器也在 2019 年後支援；針對少數不支援的環境，你可以透過 npm 套件自行擴充，如：[promise.allsettled](https://www.npmjs.com/package/promise.allsettled)
 
-### 總結
+### ▋總結
 
 1. 如果 API 沒有依序執行的需求，透過 Promise.all 的並行，可以增加執行的效率。
 2. 為了解決 Promise.all 失敗後，成功訊息一併消失的問題，可以改用 Promise.allSettled 來取得所有回傳結果。
