@@ -68,10 +68,10 @@ console.log(`使用 CSS Style %c${text}`, style);
 
 ```js
 for (let i = 0; i < 30; i++) {
-  console.log(`i -+-: ${i}`);
-
   if (i === 13) {
     console.log(`i ---: ${i}`);
+  } else {
+    console.log(`i -+-: ${i}`);
   }
 }
 ```
@@ -82,10 +82,10 @@ for (let i = 0; i < 30; i++) {
 
 ```js
 for (let i = 0; i < 30; i++) {
-  console.log(`i -+-: ${i}`);
-
   if (i === 13) {
     console.warn(`i ---: ${i}`);
+  } else {
+    console.log(`i -+-: ${i}`);
   }
 }
 ```
