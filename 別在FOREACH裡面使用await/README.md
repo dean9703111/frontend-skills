@@ -1,8 +1,8 @@
 # forEach 跟 for 有什麼差異？ ── 感覺很像但又不太一樣的迴圈
 
-在認識 forEach、map 這類高階函數後，就比較少使用 for 迴圈了，畢竟前者的程式閱讀起來更加簡潔。
+在認識 forEach、map 這類高階函數後，就比較少使用 for 迴圈了，畢竟前者寫起來更加簡潔。。
 
-但不久前有朋友跑來問我問題，說他程式的執行順序怪怪的，明明有寫 await，但跑起來卻不符期待；在看過程式後，我發現問題出在「forEach」這個函數。
+但不久前有朋友遇到 Bug 跑來問我，說他程式的執行順序怪怪的，明明有寫 await，但跑起來卻不符期待；在看過程式後，我發現問題出在「forEach」這個函數。
 
 ### ▋ 別在 forEach 裡面使用 await
 
@@ -30,13 +30,13 @@ async function test() {
 test();
 ```
 
-儘管在 forEach 裡面用上了 await，但實際執行的結果卻不是我們想的那個樣子：
+儘管在 forEach 裡面用了 await，但實際執行的結果卻不是直覺想的那樣；從下圖可以看到，在 forEcah 的 await 跑完前，「End 🔚」就先印出來了：
 
 ![image](img/foreach-await.png)
 
 > 會出現這樣的結果，`是因為 forEach 本身不是 Promise`，forEach 只是將陣列的內容抽出來放入 callback function；假如你把 forEach 改成 map 也會遇到相同的問題。
 
-了解問題的成因後，我們可以採取最暴力簡單的方案解決，那就是直接改用 for 迴圈處理：
+了解問題的成因後，我們可以採取最暴力簡單的方案，那就是改用 for 迴圈處理：
 
 ```js
 const arr = [1, 2, 3, 4];
@@ -61,11 +61,13 @@ test();
 ```
 ![image](img/for-await.png)
 
-### ▋ 疑！原來 forEach 迴圈無法中斷！
+> 備註：有些人會自己寫一個函式（ex：asyncForEach），用 forEach 的寫法來跑 await；這也是一個解法，但兩者運行的觀念要搞清楚避免混淆，[參考連結](https://israynotarray.com/javascript/20211029/2739130728/)。
+
+### ▋ 疑！原來無法中斷 forEach 迴圈！
 
 解決上面的問題後，筆者開始好奇 forEach 跟 for 迴圈還有什麼差異。
 
-然後發現 `return` 這種中斷執行的設計，在 forEach 中的運作也跟你想的不同！
+然後發現 `return` 這種中斷執行的設計，在 forEach 的運作也跟原本的預料的不同！
 
 ```js
 const arr = [1, 2, 3, 4];
