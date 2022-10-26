@@ -1,0 +1,20 @@
+{
+  "name": "frontend-skills",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dean9703111/frontend-skills.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dean9703111/frontend-skills/issues"
+  },
+  "homepage": "https://github.com/dean9703111/frontend-skills#readme"
+}
